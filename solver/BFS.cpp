@@ -2,7 +2,6 @@
  * This is the actual solving program
  */
 
-
 #include<algorithm>
 #include<queue>
 #include<iostream>
@@ -12,15 +11,38 @@ using namespace std;
 
 //adding local includes
 #include"../permutations/state_struct.h"
+#include"../permutations/piece_op.cpp"
 #include"../permutations/move_U.cpp"
 #include"../permutations/move_R.cpp"
 #include"../permutations/move_F.cpp"
 #include"../permutations/move_L.cpp"
 #include"../permutations/move_B.cpp"
 #include"../permutations/move_D.cpp"
-#include"../permutations/piece_op.cpp"
 
 #include"permToNumberMapper.cpp"
+
+typedef enum{
+	U,
+	U2,
+	Ui,
+	R,
+	R2,
+	Ri,
+	F,
+	F2,
+	Fi,
+	L,
+	L2,
+	Li,
+	B,
+	B2,
+	Bi,
+	D,
+	D2,
+	Di
+} moves;
+
+#include"../permutations/movedefs.cpp"
 
 int solve(node state){
 }

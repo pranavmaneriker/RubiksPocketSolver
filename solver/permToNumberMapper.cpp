@@ -13,7 +13,7 @@
 int node_to_num_oren(node &cur){
 	int orennum=0;
 	int p=1;
-	for(int i=0;i<8l++i){\
+	for(int i=0;i<8;++i){\
 		orennum+=cur.oren[i]*p;
 		p*=3;
 	}
@@ -24,7 +24,7 @@ int node_to_num_oren(node &cur){
 	//orennum belongs to 0-3^7
 
 	
-	return orennum
+	return orennum;
 }
 
 int node_to_num_perm(node &cur){
@@ -32,7 +32,7 @@ int node_to_num_perm(node &cur){
 	//can be done in O(nlog(n)), this implementation is O(n^2)
 
 	int permnum=0;
-	int inv,int fact=1;
+	int inv,fact=1;
 	for(int i=0;i<8;++i){
 		inv=0;
 		for(int j=i;j>=0;--j){
