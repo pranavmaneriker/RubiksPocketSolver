@@ -26,6 +26,6 @@ int solve(node state){
 }
 
 int main(){
-	cout<<printA();
+
 	return 0;
 }
