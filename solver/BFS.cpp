@@ -15,30 +15,32 @@ using namespace std;
 #include"../permutations/move_U.cpp"
 #include"../permutations/move_R.cpp"
 #include"../permutations/move_F.cpp"
-#include"../permutations/move_L.cpp"
-#include"../permutations/move_B.cpp"
-#include"../permutations/move_D.cpp"
+
 
 #include"permToNumberMapper.cpp"
 
-typedef enum{
-	U,
-	U2,
-	Ui,
-	R,
-	R2,
-	Ri,
-	F,
-	F2,
-	Fi,
-} moves;
+enum moves{
+	U=0,
+	U2=1,
+	Ui=2,
+	R=3,
+	R2=4,
+	Ri=5,
+	F=6,
+	F2=7,
+	Fi=8,
+};
 
-#include"../permutations/movedefs.cpp"
+//DLB is forced solved so cube is solvable in this <R,F,U> subgroup
+
+//These make previous move checking convinient reducing branching factor
+// Eg R R2 is redundant
+
 
 int solve(node state){
 }
 
 int main(){
-
+	// bool visited[][]
 	return 0;
 }
