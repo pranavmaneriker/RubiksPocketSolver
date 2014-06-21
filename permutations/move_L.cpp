@@ -1,6 +1,6 @@
 //function that changes the permutation as a L move would
 
-void move_L(node cur){
+void move_L(node& cur){
 	//apply L to cur
 	cycle(cur.perm,0,3,7,4);
 	cycle(cur.oren,0,3,7,4);

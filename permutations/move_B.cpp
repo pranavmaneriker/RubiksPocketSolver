@@ -1,6 +1,6 @@
 //function that changes the permutation as a B move would
 
-void move_B(node cur){
+void move_B(node& cur){
 	//apply B to cur
 	cycle(cur.perm,0,1,5,4);
 	cycle(cur.oren,0,1,5,4);

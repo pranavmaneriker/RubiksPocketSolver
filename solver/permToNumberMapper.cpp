@@ -8,6 +8,38 @@
  * If you come up with your own implementation, that's cool too 
  */
 
-int node_to_num(node cur){
-	//returns an int
+//overshooting optimal by a lot but state space is small enough for that
+
+int node_to_num_oren(node &cur){
+	int orennum=0;
+	int p=1;
+	for(int i=0;i<8l++i){\
+		orennum+=cur.oren[i]*p;
+		p*=3;
+	}
+	//orennum = base 10 representation of orientation
+	orennum/=3;
+	//since orientation is always divisible by 3
+	
+	//orennum belongs to 0-3^7
+
+	
+	return orennum
+}
+
+int node_to_num_perm(node &cur){
+	//using lehmer code+factoradic system for encoding permutation
+	//can be done in O(nlog(n)), this implementation is O(n^2)
+
+	int permnum=0;
+	int inv,int fact=1;
+	for(int i=0;i<8;++i){
+		inv=0;
+		for(int j=i;j>=0;--j){
+			if(cur.oren[i]<cur.oren[j])inv++;
+		}
+		permnum+=fact*inv;
+		fact*=i;
+	}
+	return permnum;
 }
