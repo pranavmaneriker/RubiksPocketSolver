@@ -11,15 +11,14 @@
 using namespace std;
 
 //adding local includes
-#include"../permutations/state_struct.cpp"
+#include"../permutations/state_struct.h"
 #include"../permutations/move_U.cpp"
 #include"../permutations/move_R.cpp"
 #include"../permutations/move_F.cpp"
 #include"../permutations/move_L.cpp"
 #include"../permutations/move_B.cpp"
 #include"../permutations/move_D.cpp"
-
-//The state struct file should have been a .h TODO
+#include"../permutations/piece_op.cpp"
 
 #include"permToNumberMapper.cpp"
 
