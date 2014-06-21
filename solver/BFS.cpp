@@ -31,15 +31,6 @@ typedef enum{
 	F,
 	F2,
 	Fi,
-	L,
-	L2,
-	Li,
-	B,
-	B2,
-	Bi,
-	D,
-	D2,
-	Di
 } moves;
 
 #include"../permutations/movedefs.cpp"

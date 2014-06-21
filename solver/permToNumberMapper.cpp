@@ -13,7 +13,7 @@
 int node_to_num_oren(node &cur){
 	int orennum=0;
 	int p=1;
-	for(int i=0;i<8;++i){\
+	for(int i=0;i<7;++i){\
 		orennum+=cur.oren[i]*p;
 		p*=3;
 	}
@@ -21,7 +21,7 @@ int node_to_num_oren(node &cur){
 	orennum/=3;
 	//since orientation is always divisible by 3
 	
-	//orennum belongs to 0-3^7
+	//orennum belongs to 0-3^6
 
 	
 	return orennum;
@@ -33,7 +33,7 @@ int node_to_num_perm(node &cur){
 
 	int permnum=0;
 	int inv,fact=1;
-	for(int i=0;i<8;++i){
+	for(int i=0;i<7;++i){
 		inv=0;
 		for(int j=i;j>=0;--j){
 			if(cur.oren[i]<cur.oren[j])inv++;

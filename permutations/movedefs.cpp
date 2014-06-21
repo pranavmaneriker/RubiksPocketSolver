@@ -1,22 +1,14 @@
-#define D 0
-#define Di 1
-#define D2 2
-#define U  3
-#define Ui 4
-#define U2 5
-#define F 6
-#define Fi 7
-#define F2 8
-#define R 9
-#define Ri 10
-#define R2 11
-#define L 12
-#define Li 13
-#define L2 14
-#define B 15
-#define Bi 16
-#define B2 17
+#define U  0
+#define Ui 1
+#define U2 2
+#define F 3
+#define Fi 4
+#define F2 5
+#define R 6
+#define Ri 7
+#define R2 8
 
+//DLB is forced solved so cube is solvable in this subgroup
 
 //These make previous move checking convinient reducing branching factor
 // Eg L L2 is redundant
