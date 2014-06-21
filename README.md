@@ -1,4 +1,4 @@
 RubiksPocketSolver
 ==================
 
-Solve a 2x2x2 rubik's cube
+Solve a 2x2x2 Rubik's cube with BFS
