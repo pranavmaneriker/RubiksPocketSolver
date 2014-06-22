@@ -43,9 +43,12 @@ bool isSolved(node& n){
 	return false;
 }
 
+bool visited[6000][1000]; //only 5040x3^6 is actually needed
+moves prev[6000][1000];
+//global decs to avoid segfaults dur to memory allocation
+	
 int main(){
-	bool visited[6000][1000]; //only 5040x3^6 is actually needed
-	moves prev[6000][1000];
+
 
 	for(int i=0;i<6000;++i){
 		for(int j=0;j<1000;++j){
@@ -53,7 +56,7 @@ int main(){
 		}
 	}
 
-	int initperm[7],intioren[7];
+	int initperm[7],initoren[7];
 
 	cout<<"Enter initial permutation\n";
 
@@ -69,18 +72,21 @@ int main(){
 
 
 	node n1,n2;
-	n1.perm = initperm;
-	n1.oren = initoreo;
+	for(int i=0;i<8;++i){
+		n1.perm[i] = initperm[i];
+		n1.oren[i] = initoren[i];	
+	}
+	
 
 	int initstate[] = {node_to_num_oren(n1),node_to_num_perm(n1)};
 
 	int stateoren,stateperm;
 
-	queue<node> bfsqueue;
-	bfsqueue.push(n1);
+	queue<node> q;
+	q.push(n1);
 	while(!q.empty()){
 		n1=q.front();q.pop();
-		if(isSolved(n))break;
+		if(isSolved(n1))break;
 
 		stateoren = node_to_num_oren(n1);
 		stateperm = node_to_num_perm(n1);
@@ -96,7 +102,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 0;//moves.R;
+			prev[stateperm][stateoren] = R;
 		}
 		n2 = move_R(n2);
 		stateoren = node_to_num_oren(n2);
@@ -104,7 +110,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 1;//moves.R2;
+			prev[stateperm][stateoren] = R2;
 		}
 		n2 =move_R(n2);
 		stateoren = node_to_num_oren(n2);
@@ -112,7 +118,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 2;//moves.Ri;
+			prev[stateperm][stateoren] = Ri;
 		}
 
 		//U U2 U'
@@ -122,7 +128,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 3;//moves.U;
+			prev[stateperm][stateoren] = U;
 		}
 		n2 =move_U(n2);
 		stateoren = node_to_num_oren(n2);
@@ -130,7 +136,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 4;//moves.U2;
+			prev[stateperm][stateoren] = U2;
 		}
 		n2 =move_U(n2);
 		stateoren = node_to_num_oren(n2);
@@ -138,7 +144,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 5;//moves.Ui;
+			prev[stateperm][stateoren] = Ui;
 		}
 
 		//F, F2, F'
@@ -148,7 +154,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 6; //moves.F;
+			prev[stateperm][stateoren] = F;
 		}
 		n2 =move_F(n2);
 		stateoren = node_to_num_oren(n2);
@@ -156,7 +162,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 7;//moves.F2;
+			prev[stateperm][stateoren] = F2;
 		}
 		n2 =move_F(n2);
 		stateoren = node_to_num_oren(n2);
@@ -164,7 +170,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = 8;//moves.Fi;
+			prev[stateperm][stateoren] = Fi;
 		}
 		//Highly inefficiently done
 	}

@@ -1,6 +1,6 @@
 //function that changes the permutation as a U move would
 
-nodemove_U(node cur){
+node move_U(node cur){
 	//apply U to cur
 	//No oreinetation changes, only cycles
 	cycle(cur.perm,0,1,2,3);

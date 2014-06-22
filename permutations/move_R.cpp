@@ -8,5 +8,5 @@ node move_R(node cur){
 	rotcw(cur.oren,5);
 	rotccw(cur.oren,2);
 	rotccw(cur.oren,4);
-	return cur
+	return cur;
 }
