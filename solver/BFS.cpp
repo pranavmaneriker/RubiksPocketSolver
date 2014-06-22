@@ -45,8 +45,8 @@ bool isSolved(node& n){
 
 bool visited[6000][1000]; //only 5040x3^6 is actually needed
 moves prev[6000][1000];
-//global decs to avoid segfaults dur to memory allocation
-	
+//global declarations to avoid segfaults due to memory allocation
+
 int main(){
 
 
