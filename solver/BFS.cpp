@@ -58,13 +58,13 @@ int main(){
 	cout<<"Enter initial permutation\n";
 
 	for(int i=0;i<7;++i){
-		cin<<initperm[i];
+		cin>>initperm[i];
 	}
 
 	cout<<"Enter initial orientation\n";
 
 	for(int i=0;i<7;++i){
-		cin<<initoren[i];
+		cin>>initoren[i];
 	}
 
 
@@ -88,7 +88,9 @@ int main(){
 
 		//add all unvisited neighbours
 		//TODO Add redundancy check (R R2 etc)
-		n2 =move_R(n1);
+
+		//R R2 R'
+		n2 = move_R(n1);
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
@@ -96,8 +98,77 @@ int main(){
 			q.push(n2);
 			prev[stateperm][stateoren] = moves.R;
 		}
-		//etc
+		n2 = move_R(n2);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.R2;
+		}
+		n2 =move_R(n2);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.Ri;
+		}
+
+		//U U2 U'
+		n2 =move_U(n1);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.U;
+		}
+		n2 =move_U(n2);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.U2;
+		}
+		n2 =move_U(n2);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.Ui;
+		}
+
+		//F, F2, F'
+		n2 =move_F(n1);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.F;
+		}
+		n2 =move_F(n2);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.F2;
+		}
+		n2 =move_F(n2);
+		stateoren = node_to_num_oren(n2);
+		stateperm = node_to_num_perm(n2);
+		if(!visited[stateperm][stateoren]){
+			visited[stateperm][stateoren]=true;
+			q.push(n2);
+			prev[stateperm][stateoren] = moves.Fi;
+		}
+		//Highly inefficiently done
 	}
+	//trace the prev through inverses to solved
 	//print the solution here
 	
 	return 0;
