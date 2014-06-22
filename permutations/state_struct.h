@@ -15,6 +15,8 @@ struct node {
 *perm={1,2,3,4,5,6,7}
 *oren={0,0,0,0,0,0,0,0}
 *
+*correspoding state to num = 0,0
+*
 *ULB->1,URB->2,URF->3,UFL->4
 *DRB->5,DRF->6,DFL->7
 *

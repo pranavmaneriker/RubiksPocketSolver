@@ -22,8 +22,6 @@ int node_to_num_oren(node &cur){
 	//since orientation is always divisible by 3
 	
 	//orennum belongs to 0-3^6
-
-	
 	return orennum;
 }
 
@@ -42,4 +40,8 @@ int node_to_num_perm(node &cur){
 		fact*=i;
 	}
 	return permnum;
+
+	//orennum belongs 0-7!-1
 }
+
+//now fully optimised
