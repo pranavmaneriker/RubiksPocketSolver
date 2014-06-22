@@ -100,7 +100,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = R;
 		}
@@ -108,7 +107,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = R2;
 		}
@@ -116,7 +114,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = Ri;
 		}
@@ -126,7 +123,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = U;
 		}
@@ -134,7 +130,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = U2;
 		}
@@ -142,7 +137,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = Ui;
 		}
@@ -152,7 +146,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = F;
 		}
@@ -160,7 +153,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = F2;
 		}
@@ -168,7 +160,6 @@ int main(){
 		stateoren = node_to_num_oren(n2);
 		stateperm = node_to_num_perm(n2);
 		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
 			q.push(n2);
 			prev[stateperm][stateoren] = Fi;
 		}
