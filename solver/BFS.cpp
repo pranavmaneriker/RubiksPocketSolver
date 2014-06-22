@@ -96,7 +96,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.R;
+			prev[stateperm][stateoren] = 0;//moves.R;
 		}
 		n2 = move_R(n2);
 		stateoren = node_to_num_oren(n2);
@@ -104,7 +104,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.R2;
+			prev[stateperm][stateoren] = 1;//moves.R2;
 		}
 		n2 =move_R(n2);
 		stateoren = node_to_num_oren(n2);
@@ -112,7 +112,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.Ri;
+			prev[stateperm][stateoren] = 2;//moves.Ri;
 		}
 
 		//U U2 U'
@@ -122,7 +122,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.U;
+			prev[stateperm][stateoren] = 3;//moves.U;
 		}
 		n2 =move_U(n2);
 		stateoren = node_to_num_oren(n2);
@@ -130,7 +130,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.U2;
+			prev[stateperm][stateoren] = 4;//moves.U2;
 		}
 		n2 =move_U(n2);
 		stateoren = node_to_num_oren(n2);
@@ -138,7 +138,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.Ui;
+			prev[stateperm][stateoren] = 5;//moves.Ui;
 		}
 
 		//F, F2, F'
@@ -148,7 +148,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.F;
+			prev[stateperm][stateoren] = 6; //moves.F;
 		}
 		n2 =move_F(n2);
 		stateoren = node_to_num_oren(n2);
@@ -156,7 +156,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.F2;
+			prev[stateperm][stateoren] = 7;//moves.F2;
 		}
 		n2 =move_F(n2);
 		stateoren = node_to_num_oren(n2);
@@ -164,7 +164,7 @@ int main(){
 		if(!visited[stateperm][stateoren]){
 			visited[stateperm][stateoren]=true;
 			q.push(n2);
-			prev[stateperm][stateoren] = moves.Fi;
+			prev[stateperm][stateoren] = 8;//moves.Fi;
 		}
 		//Highly inefficiently done
 	}

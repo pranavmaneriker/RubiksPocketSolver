@@ -7,6 +7,6 @@ node move_F(node cur){
 	rotcw(cur.oren,2);
 	rotcw(cur.oren,6);
 	rotccw(cur.oren,3);
-	rotcw(cur.oren,5);
+	rotccw(cur.oren,5);
 	return cur;
 }
