@@ -167,6 +167,75 @@ int main(){
 	}
 	//trace the prev through inverses to solved
 	//print the solution here
-	
+		int zz=0, aru[20];
+	while(!(node_to_num_oren(n1)==initstate[0])||!(node_to_num_perm(n1)==initstate[1]))
+	{
+		aru[zz]=prev[node_to_num_perm(n1)][node_to_num_oren(n1)];
+		zz++;
+		switch(prev[node_to_num_perm(n1)][node_to_num_oren(n1)])
+		{
+			case 0:
+			n1=move_U(move_U(move_U(n1)));
+			break;
+			case 1:
+			n1=move_U(move_U(n1));
+			break;
+			case 2:
+			n1=move_U(n1);
+			break;
+			case 3:
+			n1=move_R(move_R(move_R(n1)));
+			break;
+			case 4:
+			n1=move_R(move_R(n1));
+			break;
+			case 5:
+			n1=move_R(n1);
+			break;
+			case 6:
+			n1=move_F(move_F(move_F(n1)));
+			break;
+			case 7:
+			n1=move_F(move_F(n1));
+			break;
+			case 8:
+			n1=move_F(n1);
+			break;
+		}
+	}
+
+	for(int i=zz-1; i>=0; i--)
+	{
+		switch(aru[i])
+		{
+			case 0:
+			cout<<"U ";
+			break;
+			case 1:
+			cout<<"U2 ";
+			break;
+			case 2:
+			cout<<"U\' ";
+			break;
+			case 3:
+			cout<<"R ";
+			break;
+			case 4:
+			cout<<"R2 ";
+			break;
+			case 5:
+			cout<<"R\' ";
+			break;
+			case 6:
+			cout<<"F ";
+			break;
+			case 7:
+			cout<<"F2 ";
+			break;
+			case 8:
+			cout<<"F\' ";
+			break;
+		}
+	}
 	return 0;
 }
