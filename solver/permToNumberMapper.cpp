@@ -10,7 +10,7 @@
 
 //overshooting optimal by a lot but state space is small enough for that
 
-int node_to_num_oren(node &cur){
+int node_to_num_oren(node cur){
 	int orennum=0;
 	int p=1;
 	for(int i=0;i<7;++i){
@@ -18,14 +18,12 @@ int node_to_num_oren(node &cur){
 		p*=3;
 	}
 	//orennum = base 10 representation of orientation
-	orennum/=3;
-	//since orientation is always divisible by 3
 	
 	//orennum belongs to 0-3^6
 	return orennum;
 }
 
-int node_to_num_perm(node &cur){
+int node_to_num_perm(node cur){
 	//using lehmer code+factoradic system for encoding permutation
 	//can be done in O(nlog(n)), this implementation is O(n^2)
 
@@ -34,14 +32,14 @@ int node_to_num_perm(node &cur){
 	for(int i=0;i<7;++i){
 		inv=0;
 		for(int j=i;j>=0;--j){
-			if(cur.oren[i]<cur.oren[j])inv++;
+			if(cur.perm[i]<cur.perm[j])inv++;
 		}
 		permnum+=fact*inv;
-		fact*=i;
+		fact*=(i+1);
 	}
 	return permnum;
 
-	//orennum belongs 0-7!-1
+	//permnum belongs 0-7!-1
 }
 
 //now fully optimised

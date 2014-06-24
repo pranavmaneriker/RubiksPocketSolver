@@ -107,7 +107,7 @@ moves pre[6000][2300];
 int main()
 {
 	for(int i=0;i<6000;++i)
-	for(int j=0;j<1000;++j)
+	for(int j=0;j<2300;++j)
 	visited[i][j] = false;
 
 	int initperm[7],initoren[7];
