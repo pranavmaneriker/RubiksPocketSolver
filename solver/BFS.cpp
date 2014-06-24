@@ -31,6 +31,19 @@ enum moves{
 	Fi=8
 };
 
+moves int_to_move(int i){
+	switch(i){
+		case 0:return U;break;
+		case 1:return U2;break;
+		case 2:return Ui;break;
+		case 3:return R;break;
+		case 4:return R2;break;
+		case 5:return Ri;break;
+		case 6:return F;break;
+		case 7:return F2;break;
+		case 8:return Fi;break;
+	}
+}
 //DLB is forced solved so cube is solvable in this <R,F,U> subgroup
 
 //These make previous move checking convenient reducing branching factor

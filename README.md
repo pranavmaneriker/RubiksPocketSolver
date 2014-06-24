@@ -9,5 +9,5 @@ in which DBL is solved.
 The rest of the cubies are numbered as follows:
 
 
-ULB->1,URB->2,URF->3,UFL->4
-DRB->5,DRF->6,DFL->7
+ULB->0,URB->1,URF->2,UFL->3
+DRB->4,DRF->5,DFL->6
