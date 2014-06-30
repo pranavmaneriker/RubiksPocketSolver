@@ -11,3 +11,5 @@ The rest of the cubies are numbered as follows:
 
 ULB->0,URB->1,URF->2,UFL->3
 DRB->4,DRF->5,DFL->6
+
+Solver is only <R,U,F> optimal. Also, no GUI yet. TODO
