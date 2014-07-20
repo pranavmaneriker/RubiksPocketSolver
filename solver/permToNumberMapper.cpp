@@ -18,7 +18,6 @@ int node_to_num_oren(node cur){
 		p*=3;
 	}
 	//orennum = base 10 representation of orientation
-	
 	//orennum belongs to 0-3^6
 	return orennum;
 }
