@@ -28,7 +28,8 @@ enum moves{
 	Ri=5,
 	F=6,
 	F2=7,
-	Fi=8
+	Fi=8,
+	inv=-1
 };
 
 moves int_to_move(int i){
@@ -93,97 +94,112 @@ int main(){
 
 	int initstate[] = {node_to_num_oren(n1),node_to_num_perm(n1)};
 
+	prev[initstate[1]][initstate[0]] = inv;
 	int stateoren,stateperm;
+
+	int prevmove;
 
 	queue<node> q;
 	q.push(n1);
+
 	while(!q.empty()){
 		n1=q.front();q.pop();
 		stateoren = node_to_num_oren(n1);
 		stateperm = node_to_num_perm(n1);
+
 		visited[stateperm][stateoren]=true;
 		if(isSolved(n1))break;
-
+		
+		prevmove = prev[stateperm][stateoren];
 
 		//add all unvisited neighbours
 		//TODO Add redundancy check (R R2 etc)
 
 		//R R2 R'
-		n2 = move_R(n1);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
-			q.push(n2);
-			prev[stateperm][stateoren] = R;
-		}
-		n2 = move_R(n2);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
-			q.push(n2);
-			prev[stateperm][stateoren] = R2;
-		}
-		n2 =move_R(n2);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			visited[stateperm][stateoren]=true;
-			q.push(n2);
-			prev[stateperm][stateoren] = Ri;
+		if(prevmove/3 != 1)
+		{
+			n2 = move_R(n1);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				visited[stateperm][stateoren]=true;
+				q.push(n2);
+				prev[stateperm][stateoren] = R;
+			}
+			n2 = move_R(n2);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				visited[stateperm][stateoren]=true;
+				q.push(n2);
+				prev[stateperm][stateoren] = R2;
+			}
+			n2 =move_R(n2);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				visited[stateperm][stateoren]=true;
+				q.push(n2);
+				prev[stateperm][stateoren] = Ri;
+			}
 		}
 
 		//U U2 U'
-		n2 =move_U(n1);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			q.push(n2);
-			visited[stateperm][stateoren]=true;
-			prev[stateperm][stateoren] = U;
-		}
-		n2 =move_U(n2);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			q.push(n2);
-			visited[stateperm][stateoren]=true;
-			prev[stateperm][stateoren] = U2;
-		}
-		n2 =move_U(n2);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			q.push(n2);
-			visited[stateperm][stateoren]=true;
-			prev[stateperm][stateoren] = Ui;
+		if(prevmove/3 != 0)
+		{
+			n2 =move_U(n1);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				q.push(n2);
+				visited[stateperm][stateoren]=true;
+				prev[stateperm][stateoren] = U;
+			}
+			n2 =move_U(n2);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				q.push(n2);
+				visited[stateperm][stateoren]=true;
+				prev[stateperm][stateoren] = U2;
+			}
+			n2 =move_U(n2);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				q.push(n2);
+				visited[stateperm][stateoren]=true;
+				prev[stateperm][stateoren] = Ui;
+			}
 		}
 
 		//F, F2, F'
-		n2 =move_F(n1);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			q.push(n2);
-			visited[stateperm][stateoren]=true;
-			prev[stateperm][stateoren] = F;
-		}
-		n2 =move_F(n2);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			q.push(n2);
-			visited[stateperm][stateoren]=true;
-			prev[stateperm][stateoren] = F2;
-		}
-		n2 =move_F(n2);
-		stateoren = node_to_num_oren(n2);
-		stateperm = node_to_num_perm(n2);
-		if(!visited[stateperm][stateoren]){
-			q.push(n2);
-			visited[stateperm][stateoren]=true;
-			prev[stateperm][stateoren] = Fi;
+		if(prevmove/3 == 2)
+		{
+			n2 =move_F(n1);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				q.push(n2);
+				visited[stateperm][stateoren]=true;
+				prev[stateperm][stateoren] = F;
+			}
+			n2 =move_F(n2);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				q.push(n2);
+				visited[stateperm][stateoren]=true;
+				prev[stateperm][stateoren] = F2;
+			}
+			n2 =move_F(n2);
+			stateoren = node_to_num_oren(n2);
+			stateperm = node_to_num_perm(n2);
+			if(!visited[stateperm][stateoren]){
+				q.push(n2);
+				visited[stateperm][stateoren]=true;
+				prev[stateperm][stateoren] = Fi;
+			}
 		}
 		//Highly inefficiently done
 	}
