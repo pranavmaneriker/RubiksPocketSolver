@@ -28,7 +28,8 @@ enum moves{
 	Ri=5,
 	F=6,
 	F2=7,
-	Fi=8
+	Fi=8,
+	inv=-1
 };
 
 //DLB is forced solved so cube is solvable in this <R,F,U> subgroup
@@ -81,21 +82,28 @@ int main(){
 	int initstate[] = {node_to_num_oren(n1),node_to_num_perm(n1)};
 	cout<<"Initial orientation:"<<initstate[0]<<endl;
 	cout<<"Initial permutation:"<<initstate[1]<<endl;
-	int stateoren,stateperm,initoren_num,initprem_num;
+
+	prev[initstate[1]][initstate[0]] = inv;
+	int stateoren,stateperm;
+
+	int prevmove;
+	
 	queue<node> q;
 	q.push(n1);
+
 	while(!q.empty()){
 		n1=q.front();q.pop();
 		stateoren = node_to_num_oren(n1);
 		stateperm = node_to_num_perm(n1);
+
 		visited[stateperm][stateoren]=true;
 		if(isSolved(n1))break;
-		initoren_num = stateoren;
-		initprem_num = stateperm;
+		
+		prevmove = prev[stateperm][stateoren];
 
 		//add all unvisited neighbours
-		if(prev[initprem_num][initoren_num]/3 != 1)
 		//R R2 R'
+		if(prevmove/3 != 1)
 		{
 			n2 = move_R(n1);
 			stateoren = node_to_num_oren(n2);
@@ -123,9 +131,9 @@ int main(){
 			}
 		}
 
-		if(prev[initprem_num][initoren_num]/3 != 0)
+		//U U2 U'
+		if(prevmove/3 != 0)
 		{
-			//U U2 U'
 			n2 =move_U(n1);
 			stateoren = node_to_num_oren(n2);
 			stateperm = node_to_num_perm(n2);
@@ -151,10 +159,9 @@ int main(){
 				prev[stateperm][stateoren] = Ui;
 			}
 		}
-
-		if(prev[initprem_num][initoren_num]/3 != 2)
+		//F, F2, F'
+		if(prevmove/3 == 2)
 		{
-			//F, F2, F'
 			n2 =move_F(n1);
 			stateoren = node_to_num_oren(n2);
 			stateperm = node_to_num_perm(n2);
