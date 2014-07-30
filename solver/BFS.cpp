@@ -103,6 +103,7 @@ int main(){
 
 		//add all unvisited neighbours
 		//R R2 R'
+//		cout<<"Previou move is" <<prevmove/3<<endl;
 		if(prevmove/3 != 1)
 		{
 			n2 = move_R(n1);
@@ -160,7 +161,7 @@ int main(){
 			}
 		}
 		//F, F2, F'
-		if(prevmove/3 == 2)
+		if(prevmove/3 != 2)
 		{
 			n2 =move_F(n1);
 			stateoren = node_to_num_oren(n2);

@@ -1,6 +1,8 @@
 RubiksPocketSolver
 ==================
 
+Github Repo hosted at: https://github.com/pranavmaneriker/RubiksPocketSolver
+
 Solve a 2x2x2 Rubik's cube with BFS
 
 Please note that cube initial state should be an orientation
